@@ -12,11 +12,12 @@ Deployment: Netlify
 
 📁 Getting Started
 To run this project locally:
-
+```
 git clone https://github.com/yourusername/your-repo-name.git
 cd your-repo-name
 npm install
 npm start
+```
 
 📬 Contact
 Feel free to connect with me via LinkedIn or through the contact form on the website.
