@@ -3,24 +3,13 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github, Code, Globe, Server } from 'lucide-react';
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  liveLink?: string;
-  githubLink?: string;
-  icon: React.ReactNode;
-}
-
 const Projects = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true
   });
 
-  const [projects] = useState<Project[]>([
+  const [projects] = useState([
     {
       id: 1,
       title: "Virtual ID System",

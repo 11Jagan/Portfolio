@@ -2,14 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Code, Layout, Paintbrush } from 'lucide-react';
 
-interface ServiceCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  index: number;
-}
-
-const ServiceCard = ({ icon, title, description, index }: ServiceCardProps) => {
+const ServiceCard = ({ icon, title, description, index }) => {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true

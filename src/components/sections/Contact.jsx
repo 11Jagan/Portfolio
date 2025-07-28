@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-r
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-  const formRef = useRef<HTMLFormElement>(null);
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,12 +20,12 @@ const Contact = () => {
     triggerOnce: true
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');

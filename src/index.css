@@ -1,3 +1,9 @@
+/*
+  Modern Portfolio Base Styles
+  - Minimalist, clean, and premium look
+  - Uses Tailwind for all utilities
+  - Smooth transitions, elegant typography, and accessible focus states
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

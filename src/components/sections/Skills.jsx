@@ -2,20 +2,13 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Code, Server, Palette, Database, Terminal, Globe } from 'lucide-react';
 
-interface Skill {
-  name: string;
-  level: number;
-  color: string;
-  icon: React.ReactNode;
-}
-
 const Skills = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true
   });
 
-  const skills: Record<string, Skill[]> = {
+  const skills = {
     'Frontend Development': [
       { name: 'HTML', level: 90, color: 'from-orange-400 to-orange-600', icon: <Code size={24} /> },
       { name: 'CSS', level: 85, color: 'from-blue-400 to-blue-600', icon: <Palette size={24} /> },

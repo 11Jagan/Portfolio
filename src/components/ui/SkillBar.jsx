@@ -1,13 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-interface SkillBarProps {
-  name: string;
-  level: number;
-  color: string;
-}
-
-const SkillBar = ({ name, level, color }: SkillBarProps) => {
+const SkillBar = ({ name, level, color }) => {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true
