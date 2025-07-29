@@ -1,26 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { ArrowRight, Code, Laptop, Server, FileText } from 'lucide-react';
+import { ArrowDown, FileText, Github, Linkedin, Mail, Sun, Moon } from 'lucide-react';
+import { Typewriter } from 'react-simple-typewriter';
+import { motion } from 'framer-motion';
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
 
-// Parallax hook
-function useParallax(multiplier = 0.5) {
-  const [offset, setOffset] = useState(0);
-  useEffect(() => {
-    const handleScroll = () => {
-      setOffset(window.scrollY * multiplier);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [multiplier]);
-  return offset;
-}
+const socialLinks = [
+  { icon: <Linkedin size={22} />, url: 'https://linkedin.com', label: 'LinkedIn' },
+  { icon: <Github size={22} />, url: 'https://github.com', label: 'GitHub' },
+  { icon: <Mail size={22} />, url: 'mailto:your@email.com', label: 'Email' },
+];
 
 const Hero = () => {
-  // Parallax for backgrounds and hero image
-  const bgParallax = useParallax(0.3);
-  const shape1 = useParallax(0.5);
-  const shape2 = useParallax(0.7);
-  const heroImgParallax = useParallax(0.15);
-
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -29,103 +20,91 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="pt-28 pb-20 min-h-screen flex items-center relative overflow-hidden">
-      {/* Parallax Background gradient */}
-      <div
-        className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-white dark:from-gray-900 dark:to-gray-800 -z-10"
-        style={{ transform: `translateY(${bgParallax * 0.5}px)`, willChange: 'transform' }}
-      ></div>
-      {/* Parallax Animated shapes */}
-      <div className="absolute inset-0 -z-5">
-        <div
-          className="absolute top-20 left-10 w-72 h-72 bg-indigo-300 dark:bg-indigo-600 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-70 animate-blob"
-          style={{ transform: `translateY(${shape1}px)`, willChange: 'transform' }}
-        ></div>
-        <div
-          className="absolute top-40 right-10 w-72 h-72 bg-purple-300 dark:bg-purple-600 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-70 animate-blob animation-delay-2000"
-          style={{ transform: `translateY(${-shape2}px)`, willChange: 'transform' }}
-        ></div>
-        <div
-          className="absolute -bottom-20 left-1/2 w-72 h-72 bg-pink-300 dark:bg-pink-600 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-70 animate-blob animation-delay-4000"
-          style={{ transform: `translateY(${shape2 * 0.7}px)`, willChange: 'transform' }}
-        ></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <div className="inline-flex items-center px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-full text-indigo-800 dark:text-indigo-300 mb-6">
-              <span className="text-sm font-medium">Welcome to my portfolio</span>
-            </div>
-            <h1
-              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4 transition-transform duration-500"
-              style={{ transform: `translateY(${bgParallax * 0.2}px) scale(${1 - bgParallax * 0.0005})` }}
+    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-gray-100 to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 overflow-hidden px-4 py-16">
+      {/* Abstract SVG Blob Background */}
+      <svg className="absolute left-0 top-0 w-[600px] h-[600px] opacity-30 -z-10" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_f)"><ellipse cx="300" cy="300" rx="200" ry="180" fill="#6366f1"/></g>
+        <defs><filter id="filter0_f" x="0" y="0" width="600" height="600" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB"><feGaussianBlur stdDeviation="60"/></filter></defs>
+      </svg>
+      <div className="max-w-6xl w-full mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+        {/* Left: Text */}
+        <motion.div 
+          className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="mb-4 px-4 py-1 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-200 text-xs tracking-widest uppercase font-semibold">Welcome to my portfolio</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+            Hi, I'm Jagan
+          </h1>
+          <h2 className="text-2xl md:text-3xl font-medium mb-6 text-indigo-700 dark:text-indigo-200 min-h-[2.5rem]">
+            <Typewriter
+              words={["Full-Stack Developer.", "UI/UX Enthusiast.", "Open Source Contributor."]}
+              loop={0}
+              cursor
+              cursorStyle="_"
+              typeSpeed={60}
+              deleteSpeed={40}
+              delaySpeed={1200}
+            />
+          </h2>
+          <p className="text-lg mb-8 max-w-xl text-gray-700 dark:text-gray-200">
+            I build modern, user-friendly web applications that solve real-world problems and create delightful digital experiences.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full sm:w-auto justify-center lg:justify-start">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-400"
             >
-              Hi, I'm <span className="text-indigo-600 dark:text-indigo-400">Jagan</span>
-            </h1>
-            <p className="text-2xl text-gray-600 dark:text-gray-400 font-medium mb-6">
-              Aspiring Full-Stack Developer
-            </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
-              Passionate about building dynamic, user-friendly web applications that solve complex challenges and create intuitive digital experiences.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center transform hover:scale-105"
-              >
-                Contact Me
-                <ArrowRight size={18} className="ml-2" />
-              </button>
-              <a 
-                href="/resume.pdf" 
+              Download Resume <FileText size={20} className="ml-2" />
+            </a>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gray-200 hover:bg-indigo-700 text-indigo-700 hover:text-white dark:bg-white/10 dark:text-indigo-100 dark:hover:bg-indigo-700 dark:hover:text-white font-semibold shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            >
+              Hire Me
+            </button>
+          </div>
+          <div className="flex gap-5 mb-8 justify-center lg:justify-start">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 border-gray-300 dark:border-gray-700 hover:border-indigo-600 dark:hover:border-indigo-400 text-gray-900 dark:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center group"
+                aria-label={link.label}
+                className="text-indigo-700 hover:text-indigo-900 dark:text-indigo-200 dark:hover:text-indigo-400 transition-colors duration-200"
               >
-                View Resume
-                <FileText size={18} className="ml-2 group-hover:animate-bounce" />
+                {link.icon}
               </a>
-            </div>
-            <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
-              <div className="flex flex-col items-center lg:items-start p-4 rounded-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-gray-800/80 transition-colors duration-300">
-                <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-2">
-                  <Code size={20} />
-                </div>
-                <span className="text-sm font-medium">Frontend</span>
-              </div>
-              <div className="flex flex-col items-center lg:items-start p-4 rounded-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-gray-800/80 transition-colors duration-300">
-                <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-2">
-                  <Server size={20} />
-                </div>
-                <span className="text-sm font-medium">Backend</span>
-              </div>
-              <div className="flex flex-col items-center lg:items-start p-4 rounded-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-white/80 dark:hover:bg-gray-800/80 transition-colors duration-300">
-                <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-2">
-                  <Laptop size={20} />
-                </div>
-                <span className="text-sm font-medium">UI/UX</span>
-              </div>
-            </div>
+            ))}
           </div>
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative">
-            <div className="relative">
-              <div
-                className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-indigo-600 dark:border-indigo-400 shadow-2xl transform hover:scale-105 transition-transform duration-300"
-                style={{ transform: `translateY(${-heroImgParallax * 0.7}px) scale(${1 - heroImgParallax * 0.0007})`, willChange: 'transform' }}
-              >
-                <img 
-                  src="https://i.postimg.cc/7PNt6pKn/me.jpg" 
-                  alt="Kontham Jagan Mohan Reddy" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex items-center justify-center transform rotate-12 animate-float">
-                <span className="text-4xl">👨‍💻</span>
-              </div>
-            </div>
+        </motion.div>
+        {/* Right: Profile Image */}
+        <motion.div
+          className="flex-1 flex justify-center lg:justify-end items-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.2 }}
+        >
+          <div className="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full overflow-hidden border-4 border-white bg-white dark:border-indigo-500 dark:bg-gray-800 shadow-2xl">
+            <img
+              src="https://i.postimg.cc/7PNt6pKn/me.jpg"
+              alt="Jagan Mohan Reddy"
+              className="w-full h-full object-cover"
+            />
           </div>
-        </div>
+        </motion.div>
+      </div>
+      {/* Scroll Down Arrow */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <span className="text-xs text-indigo-200 mb-1">Scroll Down</span>
+        <button onClick={() => scrollToSection('about')} aria-label="Scroll to About" className="animate-bounce text-indigo-400 hover:text-indigo-200">
+          <ArrowDown size={32} />
+        </button>
       </div>
     </section>
   );

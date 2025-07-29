@@ -12,17 +12,18 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  @apply font-sans text-gray-900 bg-gray-50 dark:text-gray-100 dark:bg-gray-950;
+:root {
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
 }
 
-/* Utility for colored shadow on hover via data attribute */
-[data-shadow-color] {
-  transition: box-shadow 0.3s;
+body {
+  font-family: var(--font-body);
+  @apply font-sans text-gray-900 dark:text-gray-100;
 }
-[data-shadow-color]:hover,
-[data-shadow-color]:focus-visible {
-  box-shadow: 0 4px 24px 0 var(--shadow-color, #6366f1);
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
 }
 
 /* Animated underline effect for navigation */
@@ -141,24 +142,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-200 dark:bg-gray-900;
+  @apply bg-gray-200 dark:bg-gray-800;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 dark:bg-gray-700 rounded-full;
+  @apply bg-gray-400 dark:bg-gray-600 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-500 dark:bg-gray-600;
-}
-
-::selection {
-  background: #a5b4fc;
-  color: #18181b;
-}
-@media (prefers-color-scheme: dark) {
-  ::selection {
-    background: #3730a3;
-    color: #f9fafb;
-  }
+  @apply bg-gray-500 dark:bg-gray-500;
 }
