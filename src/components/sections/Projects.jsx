@@ -1,15 +1,27 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useState as useReactState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github, Code, Globe, Server } from 'lucide-react';
 
+function useParallax(multiplier = 0.18) {
+  const [offset, setOffset] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => setOffset(window.scrollY * multiplier);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [multiplier]);
+  return offset;
+}
+
 const Projects = () => {
+  const parallax = useParallax(0.12);
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true
   });
 
-  const [projects] = useState([
+  const [projects] = useReactState([
     {
       id: 1,
       title: "Virtual ID System",
@@ -61,12 +73,18 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section id="projects" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+      {/* Parallax background shape */}
+      <div
+        className="absolute -top-32 left-0 w-96 h-96 bg-purple-100 dark:bg-purple-900/30 rounded-full filter blur-2xl opacity-40 -z-10"
+        style={{ transform: `translateY(${parallax}px)`, willChange: 'transform' }}
+      ></div>
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
@@ -75,7 +93,6 @@ const Projects = () => {
             Explore my latest projects showcasing my expertise in full-stack development and problem-solving.
           </p>
         </motion.div>
-
         <motion.div 
           ref={ref}
           variants={containerVariants}
@@ -113,12 +130,10 @@ const Projects = () => {
                   </div>
                 </div>
               </div>
-
               <div className="p-6">
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
                   {project.description}
                 </p>
-                
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag) => (
                     <span 
@@ -129,7 +144,6 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                
                 <div className="flex gap-4">
                   {project.liveLink && (
                     <motion.a 
