@@ -7,7 +7,7 @@ Welcome to my personal portfolio website! This project showcases my work, skills
 ---
 
 # 🛠️ Tech Stack
--Frontend: HTML5, CSS3, TypeScript
+-Frontend: HTML5, CSS3, JavaScript
 
 -Frameworks/Libraries: React, Bootstrap
 
