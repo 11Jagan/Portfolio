@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
+import BackToTop from './components/ui/BackToTop';
 import { ThemeProvider } from './context/ThemeContext';
 import ErrorBoundary from './components/ErrorBoundary';
 
@@ -58,6 +59,7 @@ function App() {
               <Footer />
             </Suspense>
           </ErrorBoundary>
+          <BackToTop />
         </div>
       </ErrorBoundary>
     </ThemeProvider>
