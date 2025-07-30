@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram, MessageCircle, User, Calendar } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -76,9 +76,9 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { icon: <Github size={20} />, url: 'https://github.com', label: 'GitHub' },
-    { icon: <Linkedin size={20} />, url: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: <Instagram size={20} />, url: 'https://instagram.com', label: 'Instagram' }
+    { icon: <Github size={20} />, url: 'https://github.com/11Jagan', label: 'GitHub' },
+    { icon: <Linkedin size={20} />, url: 'https://www.linkedin.com/in/jagan-mohan-reddy-kontham-445250293', label: 'LinkedIn' },
+    { icon: <Instagram size={20} />, url: 'https://www.instagram.com/11_jagan_/', label: 'Instagram' }
   ];
 
   return (
@@ -117,13 +117,15 @@ const Contact = () => {
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="text-indigo-600 dark:text-indigo-400" size={20} />
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-700 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <MessageCircle className="text-white" size={22} />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Email</h4>
                     <a 
-                      href="mailto:konthamjaganmohanreddy@gmail.com" 
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=konthamjaganmohanreddy@gmail.com" 
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                     >
                       konthamjaganmohanreddy@gmail.com
@@ -132,8 +134,8 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="text-indigo-600 dark:text-indigo-400" size={20} />
+                  <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-teal-600 dark:from-green-600 dark:to-teal-700 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <Phone className="text-white" size={22} />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Phone</h4>
@@ -147,8 +149,8 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="text-indigo-600 dark:text-indigo-400" size={20} />
+                  <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 dark:from-orange-600 dark:to-red-700 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <MapPin className="text-white" size={22} />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Location</h4>
@@ -164,20 +166,27 @@ const Contact = () => {
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-700">
               <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Connect With Me</h4>
               <div className="flex space-x-4">
-                {socialLinks.map((link) => (
-                  <motion.a 
-                    key={link.label}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-indigo-600 hover:text-white transition-all duration-300"
-                    aria-label={link.label}
-                  >
-                    {link.icon}
-                  </motion.a>
-                ))}
+                {socialLinks.map((link, index) => {
+                  const gradients = [
+                    'bg-gradient-to-br from-gray-800 to-gray-900 hover:from-indigo-600 hover:to-purple-600',
+                    'bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600',
+                    'bg-gradient-to-br from-pink-500 to-rose-600 hover:from-pink-400 hover:to-rose-500'
+                  ];
+                  return (
+                    <motion.a 
+                      key={link.label}
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      whileTap={{ scale: 0.9 }}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-14 h-14 ${gradients[index]} rounded-2xl flex items-center justify-center text-white shadow-lg transition-all duration-300 transform hover:shadow-xl`}
+                      aria-label={link.label}
+                    >
+                      {link.icon}
+                    </motion.a>
+                  );
+                })}
               </div>
             </div>
           </motion.div>

@@ -16,14 +16,16 @@ const Footer = () => {
           
           <div className="flex space-x-4">
             <a 
-              href="mailto:konthamjaganmohanreddy@gmail.com" 
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=konthamjaganmohanreddy@gmail.com" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
               aria-label="Email"
             >
               <Mail size={20} />
             </a>
             <a 
-              href="https://github.com" 
+              href="https://github.com/11Jagan" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
@@ -32,7 +34,7 @@ const Footer = () => {
               <Github size={20} />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/jagan-mohan-reddy-kontham-445250293" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
@@ -41,7 +43,7 @@ const Footer = () => {
               <Linkedin size={20} />
             </a>
             <a 
-              href="https://instagram.com" 
+              href="https://www.instagram.com/11_jagan_/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"

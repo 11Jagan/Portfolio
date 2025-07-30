@@ -5,9 +5,9 @@ import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 
 const socialLinks = [
-  { icon: <Linkedin size={22} />, url: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: <Github size={22} />, url: 'https://github.com', label: 'GitHub' },
-  { icon: <Mail size={22} />, url: 'mailto:your@email.com', label: 'Email' },
+  { icon: <Linkedin size={22} />, url: 'https://www.linkedin.com/in/jagan-mohan-reddy-kontham-445250293', label: 'LinkedIn' },
+  { icon: <Github size={22} />, url: 'https://github.com/11Jagan', label: 'GitHub' },
+  { icon: <Mail size={22} />, url: 'https://mail.google.com/mail/?view=cm&fs=1&to=konthamjaganmohanreddy@gmail.com', label: 'Email' },
 ];
 
 const Hero = () => {

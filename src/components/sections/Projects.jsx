@@ -10,7 +10,7 @@ const Projects = () => {
       description: "A comprehensive digital ID platform for educational institutions featuring QR-based authentication, attendance tracking, and academic management.",
       image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       tags: ["React", "Node.js", "MongoDB", "Express"],
-      githubLink: "https://github.com",
+      githubLink: "https://github.com/11Jagan",
       liveLink: "https://demo.com",
     },
     {
@@ -19,7 +19,7 @@ const Projects = () => {
       description: "Feature-rich online shopping platform with real-time inventory, secure payments, and responsive design for optimal user experience.",
       image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       tags: ["React", "Node.js", "Redux", "MongoDB"],
-      githubLink: "https://github.com",
+      githubLink: "https://github.com/11Jagan",
       liveLink: "https://demo.com",
     },
     {
@@ -28,7 +28,7 @@ const Projects = () => {
       description: "Real-time task management and team collaboration platform with integrated chat, file sharing, and progress tracking.",
       image: "https://images.pexels.com/photos/6956903/pexels-photo-6956903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       tags: ["React", "Firebase", "Tailwind", "WebSocket"],
-      githubLink: "https://github.com",
+      githubLink: "https://github.com/11Jagan",
       liveLink: "https://demo.com",
     }
   ]);
