@@ -6,12 +6,12 @@ const Projects = () => {
   const [projects] = React.useState([
     {
       id: 1,
-      title: "Virtual ID System",
-      description: "A comprehensive digital ID platform for educational institutions featuring QR-based authentication, attendance tracking, and academic management.",
-      image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["React", "Node.js", "MongoDB", "Express"],
-      githubLink: "https://github.com/11Jagan",
-      liveLink: "https://demo.com",
+      title: "Resume Builder",
+      description: "A modern, full-stack resume builder application that helps users create professional, ATS-friendly resumes with an intuitive interface and real-time preview.",
+      image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      tags: ["React", "Node.js", "Express", "JWT", "Tailwind"],
+      githubLink: "https://github.com/11Jagan/ResumeBuilder",
+      liveLink: "https://resume-builder-sigma-rust.vercel.app/",
     },
     {
       id: 2,
@@ -73,6 +73,7 @@ const Projects = () => {
     "Firebase": "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300",
     "Tailwind": "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300",
     "WebSocket": "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300",
+    "JWT": "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300",
   };
 
   return (
