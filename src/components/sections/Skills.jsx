@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { SiHtml5, SiCss3, SiJavascript, SiReact, SiTailwindcss, SiTypescript, SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiGit, SiGithub, SiPostman, SiVscodium, SiEjs } from 'react-icons/si';
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiTailwindcss, SiBootstrap, SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiGit, SiGithub, SiVscodium, SiEjs } from 'react-icons/si';
 
 const skillCategories = [
   {
@@ -13,7 +13,7 @@ const skillCategories = [
       { name: 'JavaScript', icon: <SiJavascript color="#F7DF1E" size={24} /> },
       { name: 'React', icon: <SiReact color="#61DAFB" size={24} /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss color="#06B6D4" size={24} /> },
-      { name: 'TypeScript', icon: <SiTypescript color="#3178C6" size={24} /> },
+      { name: 'Bootstrap', icon: <SiBootstrap color="#7952B3" size={24} /> },
     ],
   },
   {
@@ -27,6 +27,7 @@ const skillCategories = [
       { name: 'REST API', icon: <SiExpress color="#4CAF50" size={24} /> },
       { name: 'MongoDB', icon: <SiMongodb color="#47A248" size={24} /> },
       { name: 'SQL', icon: <SiMysql color="#4479A1" size={24} /> },
+      { name: 'EJS', icon: <SiEjs color="#A91E50" size={24} /> },
     ],
   },
   {
@@ -37,9 +38,7 @@ const skillCategories = [
     skills: [
       { name: 'Git', icon: <SiGit color="#f05032" size={24} /> },
       { name: 'GitHub', icon: <SiGithub color="#181717" size={24} /> },
-      { name: 'Postman', icon: <SiPostman color="#FF6C37" size={24} /> },
       { name: 'VS Code', icon: <SiVscodium color="#0078d4" size={24} /> },
-      { name: 'EJS', icon: <SiEjs color="#A91E50" size={24} /> },
     ],
   },
 ];

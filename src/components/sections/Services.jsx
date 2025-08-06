@@ -105,8 +105,8 @@ const Services = () => {
           />
           <ServiceCard 
             icon={<Layout size={28} />} 
-            title="UI/UX Design" 
-            description="Crafting intuitive and modern user interfaces with a focus on usability, accessibility, and delightful experiences." 
+            title="API Development" 
+            description="Building robust RESTful APIs and backend services with proper authentication, validation, and database integration." 
             index={1} 
           />
           <ServiceCard 

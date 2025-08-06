@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaNodeJs, FaReact, FaDatabase, FaGithub, FaUsers } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiJavascript, SiTypescript, SiPostman } from 'react-icons/si';
+import { SiMongodb, SiExpress, SiJavascript, SiBootstrap } from 'react-icons/si';
 
 const techStack = [
   { icon: <FaReact size={28} color="#61DAFB" />, label: 'React' },
@@ -8,9 +8,8 @@ const techStack = [
   { icon: <SiExpress size={28} color="#000000" />, label: 'Express' },
   { icon: <SiMongodb size={28} color="#47A248" />, label: 'MongoDB' },
   { icon: <SiJavascript size={28} color="#F7DF1E" />, label: 'JavaScript' },
-  { icon: <SiTypescript size={28} color="#3178C6" />, label: 'TypeScript' },
+  { icon: <SiBootstrap size={28} color="#7952B3" />, label: 'Bootstrap' },
   { icon: <FaDatabase size={28} color="#4F46E5" />, label: 'REST APIs' },
-  { icon: <SiPostman size={28} color="#FF6C37" />, label: 'Postman' },
   { icon: <FaGithub size={28} color="#181717" />, label: 'GitHub' },
 ];
 
@@ -43,7 +42,7 @@ const About = () => {
             </h2>
             <div className="w-16 h-1 bg-indigo-600 dark:bg-indigo-400 mb-6"></div>
             <p className="mb-4 text-[1.08rem] md:text-lg text-[#444] dark:text-gray-300" style={{ lineHeight: 1.6, fontFamily: 'Poppins, sans-serif' }}>
-              I'm a <span className="font-semibold text-indigo-600 dark:text-indigo-400">Full Stack Web Developer</span> who builds modern, responsive, and user-centric applications. My main stack is <span className="font-semibold text-green-700 dark:text-green-400">MERN</span> (MongoDB, Express, React, Node.js), and I love working with REST APIs, JavaScript, and TypeScript.
+              I'm a <span className="font-semibold text-indigo-600 dark:text-indigo-400">Full Stack Web Developer</span> who builds modern, responsive, and user-centric applications. My main stack is <span className="font-semibold text-green-700 dark:text-green-400">MERN</span> (MongoDB, Express, React, Node.js), and I love working with REST APIs, JavaScript, and modern CSS frameworks.
             </p>
             <p className="mb-4 text-[1.08rem] md:text-lg text-[#555] dark:text-gray-300" style={{ lineHeight: 1.6, fontFamily: 'Poppins, sans-serif' }}>
               I thrive on <span className="font-semibold text-indigo-600 dark:text-indigo-400">problem-solving</span> and collaboration, and I'm passionate about creating seamless digital experiences that make a difference.

@@ -40,7 +40,7 @@ const Hero = () => {
           </h1>
           <h2 className="text-2xl md:text-3xl font-medium mb-6 text-indigo-700 dark:text-indigo-200 min-h-[2.5rem]">
             <Typewriter
-              words={["Full-Stack Developer.", "UI/UX Enthusiast.", "Open Source Contributor."]}
+              words={["Full-Stack Developer.", "Open Source Contributor."]}
               loop={0}
               cursor
               cursorStyle="_"
