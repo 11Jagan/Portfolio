@@ -1,36 +1,42 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { ExternalLink, Github } from "lucide-react";
 
 const Projects = () => {
   const [projects] = React.useState([
     {
       id: 1,
       title: "Resume Builder",
-      description: "A modern, full-stack resume builder application that helps users create professional, ATS-friendly resumes with an intuitive interface and real-time preview.",
-      image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      description:
+        "A modern, full-stack resume builder application that helps users create professional, ATS-friendly resumes with an intuitive interface and real-time preview.",
+      image:
+        "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       tags: ["React", "Node.js", "Express", "JWT", "Tailwind"],
       githubLink: "https://github.com/11Jagan/ResumeBuilder",
       liveLink: "https://resume-builder-sigma-rust.vercel.app/",
     },
     {
       id: 2,
-      title: "Modern E-commerce Platform",
-      description: "Feature-rich online shopping platform with real-time inventory, secure payments, and responsive design for optimal user experience.",
-      image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["React", "Node.js", "Redux", "MongoDB"],
-      githubLink: "https://github.com/11Jagan",
-      liveLink: "https://demo.com",
+      title: "Expense Tracker",
+      description:
+        "The Expense Tracker app allows users to add incomes and expenses, set budgets, and track their financial activity. It provides visual reports in charts to easily monitor spending patterns and budget adherence.",
+      image:
+        "https://s3-ap-southeast-1.amazonaws.com/storage.virtualspirit.me/post/cover/294/10_Key_Features_of_Budgeting_and_Expense_Tracking_in_Fintech_Apps.jpg",
+      tags: ["React", "Node.js", "Express", "MongoDB"],
+      githubLink: "https://github.com/11Jagan/Expense-Tracker",
+      liveLink: "https://cointraker.netlify.app/",
     },
     {
       id: 3,
-      title: "Team Collaboration Hub",
-      description: "Real-time task management and team collaboration platform with integrated chat, file sharing, and progress tracking.",
-      image: "https://images.pexels.com/photos/6956903/pexels-photo-6956903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["React", "Firebase", "Tailwind", "WebSocket"],
-      githubLink: "https://github.com/11Jagan",
-      liveLink: "https://demo.com",
-    }
+      title: "AirBnb Clone",
+      description:
+        "The Airbnb Clone is a web app that lets users search, view, and book accommodations worldwide. It features property listings, images, descriptions, and booking management, providing an experience similar to Airbnb.(wait 2 minutes for the server to wake up when opening the demo link)",
+      image:
+        "https://migrateshop.com/wp-content/uploads/2022/07/Airbnb-clone-script.webp",
+      tags: ["React", "MongoDB", "Node.js", "Express"],
+      githubLink: "https://github.com/11Jagan/Airbnb-Clone",
+      liveLink: "https://wanderstay-ks67.onrender.com/",
+    },
   ]);
 
   const containerVariants = {
@@ -39,9 +45,9 @@ const Projects = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
+        delayChildren: 0.1,
+      },
+    },
   };
 
   const cardVariants = {
@@ -51,36 +57,42 @@ const Projects = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
-      }
+        ease: "easeOut",
+      },
     },
     hover: {
       y: -8,
       scale: 1.02,
       transition: {
         duration: 0.2,
-        ease: "easeInOut"
-      }
-    }
+        ease: "easeInOut",
+      },
+    },
   };
 
   const tagColors = {
-    "React": "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
-    "Node.js": "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
-    "MongoDB": "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300",
-    "Express": "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300",
-    "Redux": "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300",
-    "Firebase": "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300",
-    "Tailwind": "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300",
-    "WebSocket": "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300",
-    "JWT": "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300",
+    React: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
+    "Node.js":
+      "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
+    MongoDB:
+      "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300",
+    Express: "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300",
+    Redux:
+      "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300",
+    Firebase:
+      "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300",
+    Tailwind:
+      "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300",
+    WebSocket:
+      "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300",
+    JWT: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300",
   };
 
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -91,12 +103,13 @@ const Projects = () => {
             Featured Projects
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg">
-            Explore my latest projects showcasing my expertise in full-stack development and problem-solving.
+            Explore my latest projects showcasing my expertise in full-stack
+            development and problem-solving.
           </p>
         </motion.div>
 
         {/* Projects Grid */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -104,7 +117,7 @@ const Projects = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto"
         >
           {projects.map((project, index) => (
-            <motion.div 
+            <motion.div
               key={project.id}
               variants={cardVariants}
               whileHover="hover"
@@ -112,8 +125,8 @@ const Projects = () => {
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -135,9 +148,12 @@ const Projects = () => {
                 {/* Tech Stack Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag) => (
-                    <span 
-                      key={tag} 
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${tagColors[tag] || 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300'}`}
+                    <span
+                      key={tag}
+                      className={`px-3 py-1 rounded-full text-xs font-medium ${
+                        tagColors[tag] ||
+                        "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300"
+                      }`}
                     >
                       {tag}
                     </span>
@@ -146,7 +162,7 @@ const Projects = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
-                  <motion.a 
+                  <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     href={project.liveLink}
@@ -157,7 +173,7 @@ const Projects = () => {
                     <ExternalLink size={16} className="mr-2" />
                     Live Demo
                   </motion.a>
-                  <motion.a 
+                  <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     href={project.githubLink}
