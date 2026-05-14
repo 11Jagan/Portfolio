@@ -22,7 +22,7 @@ const SkillBar = ({ name, level, color }) => {
           initial={{ opacity: 0, x: 20 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-indigo-600 dark:text-indigo-400 font-medium"
+          className="text-brand font-medium"
         >
           {level}%
         </motion.span>

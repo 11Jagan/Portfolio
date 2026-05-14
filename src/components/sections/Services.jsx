@@ -30,27 +30,27 @@ const ServiceCard = ({ icon, title, description, index }) => {
       whileInView="visible"
       whileHover="hover"
       viewport={{ once: true, amount: 0.2 }}
-      className="group relative bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden"
+      className="group relative bg-[var(--surface)] p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-[var(--border)] overflow-hidden"
     >
       {/* Background gradient on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       
       {/* Content */}
       <div className="relative z-10">
         {/* Icon */}
-        <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+        <div className="w-14 h-14 bg-brand rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-brand/20">
           <div className="text-white">
             {icon}
           </div>
         </div>
         
         {/* Title */}
-        <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
+        <h3 className="text-xl font-bold mb-4 text-[var(--fg)] group-hover:text-brand transition-colors duration-300">
           {title}
         </h3>
         
         {/* Description */}
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+        <p className="text-[var(--muted-fg)] leading-relaxed">
           {description}
         </p>
       </div>
@@ -71,7 +71,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="services" className="py-20 bg-[var(--bg)] border-t border-[var(--border)]">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div 
@@ -81,10 +81,10 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            My Services
+          <h2 className="text-4xl md:text-5xl font-display font-black uppercase tracking-tightest text-[var(--fg)] mb-4">
+            My <span className="text-brand">Services</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg">
+          <p className="text-[var(--muted-fg)] max-w-2xl mx-auto text-lg font-serif italic">
             I offer comprehensive web development solutions tailored to your specific needs.
           </p>
         </motion.div>

@@ -1,112 +1,127 @@
 import { motion } from 'framer-motion';
-import { SiHtml5, SiCss3, SiJavascript, SiReact, SiTailwindcss, SiBootstrap, SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiGit, SiGithub, SiVscodium, SiEjs } from 'react-icons/si';
 
-const skillCategories = [
+const CATEGORIES = [
   {
-    name: 'Frontend',
-    color: 'text-blue-600',
-    bgColor: 'bg-blue-50',
-    borderColor: 'border-blue-200',
+    no: '/ 01',
+    title: 'Frontend',
     skills: [
-      { name: 'HTML', icon: <SiHtml5 color="#E34F26" size={24} /> },
-      { name: 'CSS', icon: <SiCss3 color="#1572B6" size={24} /> },
-      { name: 'JavaScript', icon: <SiJavascript color="#F7DF1E" size={24} /> },
-      { name: 'React', icon: <SiReact color="#61DAFB" size={24} /> },
-      { name: 'Tailwind CSS', icon: <SiTailwindcss color="#06B6D4" size={24} /> },
-      { name: 'Bootstrap', icon: <SiBootstrap color="#7952B3" size={24} /> },
+      { name: 'React', level: 'Expert' },
+      { name: 'JavaScript / TS', level: 'Expert' },
+      { name: 'Tailwind CSS', level: 'Expert' },
+      { name: 'Framer Motion', level: 'Advanced' },
+      { name: 'HTML / CSS', level: 'Expert' },
+      { name: 'Bootstrap', level: 'Advanced' },
     ],
   },
   {
-    name: 'Backend',
-    color: 'text-green-600',
-    bgColor: 'bg-green-50',
-    borderColor: 'border-green-200',
+    no: '/ 02',
+    title: 'Backend',
     skills: [
-      { name: 'Node.js', icon: <SiNodedotjs color="#339933" size={24} /> },
-      { name: 'Express.js', icon: <SiExpress color="#000000" size={24} /> },
-      { name: 'REST API', icon: <SiExpress color="#4CAF50" size={24} /> },
-      { name: 'MongoDB', icon: <SiMongodb color="#47A248" size={24} /> },
-      { name: 'SQL', icon: <SiMysql color="#4479A1" size={24} /> },
-      { name: 'EJS', icon: <SiEjs color="#A91E50" size={24} /> },
+      { name: 'Node.js', level: 'Advanced' },
+      { name: 'Express.js', level: 'Advanced' },
+      { name: 'Flask', level: 'Advanced' },
+      { name: 'REST APIs', level: 'Advanced' },
+      { name: 'MongoDB', level: 'Advanced' },
+      { name: 'SQL / MySQL', level: 'Intermediate' },
     ],
   },
   {
-    name: 'Tools & Platforms',
-    color: 'text-purple-600',
-    bgColor: 'bg-purple-50',
-    borderColor: 'border-purple-200',
+    no: '/ 03',
+    title: 'Tools & Craft',
     skills: [
-      { name: 'Git', icon: <SiGit color="#f05032" size={24} /> },
-      { name: 'GitHub', icon: <SiGithub color="#181717" size={24} /> },
-      { name: 'VS Code', icon: <SiVscodium color="#0078d4" size={24} /> },
+      { name: 'Git / GitHub', level: 'Expert' },
+      { name: 'VS Code', level: 'Expert' },
+      { name: 'Postman', level: 'Advanced' },
+      { name: 'Figma', level: 'Intermediate' },
+      { name: 'Vercel / Netlify', level: 'Advanced' },
     ],
   },
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section
+      id="skills"
+      data-testid="skills-section"
+      className="py-24 sm:py-32 lg:py-40 bg-[var(--surface)] border-y border-[var(--border)]"
+    >
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Technical Skills
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg">
-            Technologies and tools I use to bring ideas to life
-          </p>
-        </motion.div>
+        <div className="grid grid-cols-12 gap-6 mb-16 lg:mb-24 items-end">
+          <div className="col-span-12 lg:col-span-7">
+            <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--muted)] mb-4">
+              <span className="text-brand">[ 03 ]</span>
+              &nbsp; Stack
+            </div>
+
+            <h2 className="font-display font-black uppercase text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tightest">
+              The Tools
+              <br />
+
+              <span className="font-serif italic font-normal lowercase text-[var(--muted-fg)]">
+                that earn
+              </span>{' '}
+              their keep
+              <span className="text-brand">.</span>
+            </h2>
+          </div>
+
+          <div className="col-span-12 lg:col-span-4 lg:col-start-9">
+            <p className="font-sans text-base sm:text-lg text-[var(--muted-fg)] leading-relaxed">
+              A working inventory — refined, not exhaustive. Every entry has
+              shipped in production at least once.
+            </p>
+          </div>
+        </div>
 
         {/* Skills Grid */}
-        <div className="max-w-6xl mx-auto space-y-12">
-          {skillCategories.map((category, categoryIndex) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
+          {CATEGORIES.map((cat, idx) => (
             <motion.div
-              key={category.name}
+              key={cat.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-gray-700"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.6,
+                delay: idx * 0.15,
+              }}
+              data-testid={`skill-category-${cat.title.toLowerCase()}`}
             >
               {/* Category Header */}
-              <div className="text-center mb-8">
-                <h3 className={`text-2xl font-bold ${category.color} dark:text-white mb-2`}>
-                  {category.name}
+              <div className="flex items-baseline justify-between border-b-2 border-[var(--fg)] pb-3 mb-2">
+                <h3 className="font-display font-bold uppercase text-2xl tracking-tight">
+                  {cat.title}
                 </h3>
-                <div className={`w-16 h-1 mx-auto ${category.bgColor} rounded-full`}></div>
+
+                <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-brand">
+                  {cat.no}
+                </span>
               </div>
 
-              {/* Skills Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ 
-                      duration: 0.4, 
-                      delay: categoryIndex * 0.2 + skillIndex * 0.1 
-                    }}
-                    whileHover={{ 
-                      scale: 1.05,
-                      y: -5,
-                      transition: { duration: 0.2 }
-                    }}
-                    className="group flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50 dark:bg-gray-700 hover:bg-white dark:hover:bg-gray-600 hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-200 dark:border-gray-600"
+              {/* Skill List */}
+              <ul>
+                {cat.skills.map((s, i) => (
+                  <li
+                    key={s.name}
+                    className="group flex items-baseline justify-between py-4 border-b border-[var(--border)] hover:border-brand transition-colors cursor-default"
                   >
-                    <div className="mb-3 group-hover:scale-110 transition-transform duration-300">
-                      {skill.icon}
-                    </div>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-200 text-center group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
-                      {skill.name}
+                    <span className="flex items-baseline gap-3">
+                      <span className="font-mono text-[10px] text-[var(--muted)]">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+
+                      <span className="font-sans text-lg sm:text-xl text-[var(--fg)] group-hover:text-brand transition-colors">
+                        {s.name}
+                      </span>
                     </span>
-                  </motion.div>
+
+                    <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--muted)]">
+                      {s.level}
+                    </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
           ))}
         </div>

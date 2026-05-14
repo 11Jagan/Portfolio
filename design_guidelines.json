@@ -1,0 +1,90 @@
+{
+    "theme": "dark_and_light",
+    "archetype": "Swiss & High-Contrast / Editorial (Awwwards Vibe)",
+    "colors": {
+        "light": {
+            "background": "#F2F2F0",
+            "foreground": "#0A0A0A",
+            "primary": "#E03C28",
+            "primary_foreground": "#FFFFFF",
+            "surface": "#FFFFFF",
+            "border": "#DCDCDA",
+            "muted": "#737373",
+            "muted_foreground": "#404040"
+        },
+        "dark": {
+            "background": "#0A0A0A",
+            "foreground": "#F2F2F0",
+            "primary": "#E03C28",
+            "primary_foreground": "#FFFFFF",
+            "surface": "#141414",
+            "border": "#262626",
+            "muted": "#404040",
+            "muted_foreground": "#A3A3A3"
+        }
+    },
+    "typography": {
+        "font_families": {
+            "heading": "'Cabinet Grotesk', sans-serif",
+            "body": "'Satoshi', sans-serif",
+            "accent": "'Newsreader', serif",
+            "mono": "'JetBrains Mono', monospace"
+        },
+        "font_imports": [
+            "@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@900,800,700,500,400&f[]=satoshi@900,700,500,400&display=swap');",
+            "@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@1,6..72,200..800&display=swap');"
+        ],
+        "sizes": {
+            "h1": "text-5xl sm:text-7xl lg:text-8xl tracking-tighter leading-none font-black uppercase",
+            "h2": "text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-none font-bold uppercase",
+            "h3": "text-2xl sm:text-3xl font-bold tracking-tight",
+            "body": "text-base sm:text-lg leading-relaxed",
+            "mono_label": "text-xs sm:text-sm tracking-[0.15em] uppercase font-mono"
+        }
+    },
+    "layout": {
+        "container": "max-w-7xl mx-auto px-6 sm:px-8 md:px-12",
+        "spacing": {
+            "section_y": "py-24 sm:py-32 lg:py-40",
+            "gap_large": "gap-12 sm:gap-16 lg:gap-24"
+        },
+        "grid_system": "Bento Grid and Asymmetric column layouts. Use 12-column CSS grids where elements span 5 or 7 columns, intentionally leaving 1 column empty for whitespace tension."
+    },
+    "components": {
+        "hero": "Asymmetric split. Left side: Massive typography 'KONTHAM JAGAN [newline] MOHAN REDDY'. Right side: The portrait framed in a stark, thin border or raw rectangular crop. Include a small mono paragraph describing the role.",
+        "buttons": "Sharp edges (rounded-none). Solid primary color for primary actions. Border + transparent background for secondary. Hover states should slide in an arrow or inverse colors.",
+        "cards_projects": "Minimalist. Large image block (no border-radius) with title and tech stack below it. On hover, the image scales slightly. Tech stack shown as mono text comma separated.",
+        "marquee": "Massive outlined typography (`text-transparent stroke-current border-text`) scrolling horizontally. E.g. 'FULL-STACK DEVELOPER • CREATIVE CODER • '",
+        "testimonials": "Editorial quote block. Huge serif quotation marks in `Newsreader`. Clean sans-serif text. Author in mono.",
+        "skills": "Grouped into 3 distinct vertical columns: Frontend, Backend, Tools. List them with clean typography and 1px bottom borders for each item (list style).",
+        "experience": "Minimal timeline. Use a 12-column grid: 3 columns for dates (mono), 9 columns for Role, Company, and description.",
+        "theme_toggle": "A crisp icon button (Sun/Moon) fixed to the header or bottom corner, switching between `.dark` and root styles instantly."
+    },
+    "motion": {
+        "scroll_reveal": "Framer Motion: `initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}`",
+        "hover_image": "Scale up image 1.05 with a 0.6s ease-out transition. Container must have `overflow-hidden`."
+    },
+    "media": {
+        "avatar": "https://i.postimg.cc/7PNt6pKn/me.jpg",
+        "projects": [
+            "https://images.unsplash.com/photo-1634084462412-b54873c0a56d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwd2Vic2l0ZSUyMHVpJTIwbGF5b3V0fGVufDB8fHx8MTc3ODczMjkyNHww&ixlib=rb-4.1.0&q=85",
+            "https://images.unsplash.com/photo-1530435460869-d13625c69bbf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwd2Vic2l0ZSUyMHVpJTIwbGF5b3V0fGVufDB8fHx8MTc3ODczMjkyNHww&ixlib=rb-4.1.0&q=85",
+            "https://images.unsplash.com/photo-1720962158883-b0f2021fb51e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwzfHxtaW5pbWFsaXN0JTIwd2Vic2l0ZSUyMHVpJTIwbGF5b3V0fGVufDB8fHx8MTc3ODczMjkyNHww&ixlib=rb-4.1.0&q=85",
+            "https://images.unsplash.com/photo-1638864616275-9f0b291a2eb6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzB8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMG1pbmltYWwlMjB0ZWNoJTIwZGFya3xlbnwwfHx8fDE3Nzg3MzI5MjB8MA&ixlib=rb-4.1.0&q=85"
+        ]
+    },
+    "testing": {
+        "data_testid": "Apply `data-testid` to all major interactive elements. E.g., `data-testid='theme-toggle'`, `data-testid='hero-cta'`, `data-testid='nav-link-projects'`."
+    },
+    "instructions_to_main_agent": [
+        "Configure Tailwind CSS to use the specific font families (heading, body, accent, mono) and color variables defined.",
+        "Implement the dark mode toggle using standard Tailwind `dark:` classes or switching a `.dark` class on the root element.",
+        "Use standard semantic HTML sections (`header`, `main`, `section`, `footer`) and follow the Awwwards editorial vibe.",
+        "Do NOT use standard Shadcn card/rounded styles. Use sharp edges (rounded-none), high contrast 1px borders, and generous padding to achieve the editorial look.",
+        "Avoid purple/indigo gradients entirely.",
+        "Implement the Marquee using framer-motion or standard CSS keyframes.",
+        "Ensure the hero avatar frames the image nicely, potentially with a monochrome filter until hover.",
+        "Populate the site with Jagan Mohan Reddy's realistic Full-Stack Developer placeholder data.",
+        "Ensure WCAG compliance by checking color contrast, especially for the accent color against backgrounds."
+    ]
+}

@@ -4,8 +4,15 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: true, // Listen on all network interfaces
-    port: 5173, // Default Vite port
+    host: '0.0.0.0',
+    port: 3000,
+    strictPort: true,
+    allowedHosts: true,
+    hmr: { clientPort: 443 },
+  },
+  preview: {
+    host: '0.0.0.0',
+    port: 3000,
   },
   build: {
     minify: 'terser',
@@ -20,6 +27,6 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    exclude: ['lucide-react'],
+    include: ['lucide-react'],
   },
 });

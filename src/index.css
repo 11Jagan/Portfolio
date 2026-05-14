@@ -1,154 +1,172 @@
-/*
-  Modern Portfolio Base Styles
-  - Minimalist, clean, and premium look
-  - Uses Tailwind for all utilities
-  - Smooth transitions, elegant typography, and accessible focus states
-*/
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@900,800,700,500,400&f[]=satoshi@900,700,500,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Root Theme */
+:root {
+  --bg: #f2f2f0;
+  --fg: #0a0a0a;
+  --surface: #ffffff;
+  --border: #dcdcda;
+  --muted: #737373;
+  --muted-fg: #404040;
+  --brand: #e03c28;
+}
+
+/* Dark Theme */
+.dark {
+  --bg: #0a0a0a;
+  --fg: #f2f2f0;
+  --surface: #141414;
+  --border: #262626;
+  --muted: #404040;
+  --muted-fg: #a3a3a3;
+  --brand: #e03c28;
+}
+
+/* Global Reset */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* HTML */
 html {
   scroll-behavior: smooth;
+  background: var(--bg);
 }
 
-:root {
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Montserrat', sans-serif;
-}
-
+/* Body */
 body {
-  font-family: var(--font-body);
-  @apply font-sans text-gray-900 dark:text-gray-100;
+  font-family: 'Satoshi', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-heading);
+/* Text Selection */
+::selection {
+  background: var(--brand);
+  color: #ffffff;
 }
 
-/* Animated underline effect for navigation */
-.nav-link {
-  @apply relative;
-}
-
-.nav-link::after {
-  @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 transition-all duration-300;
-}
-
-.nav-link:hover::after {
-  @apply w-full;
-}
-
-/* Custom animations */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes blob {
-  0% {
-    transform: translate(0px, 0px) scale(1);
-  }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-  100% {
-    transform: translate(0px, 0px) scale(1);
-  }
-}
-
-.animate-blob {
-  animation: blob 7s infinite;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-/* Enhanced hover effects */
-.hover-scale {
-  @apply transition-transform duration-300 hover:scale-105;
-}
-
-.hover-lift {
-  @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-lg;
-}
-
-.hover-rotate {
-  @apply transition-transform duration-300 hover:rotate-6;
-}
-
-/* Bounce animation */
-@keyframes bounce-custom {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-.animate-bounce-custom {
-  animation: bounce-custom 1s cubic-bezier(0.36, 0, 0.66, -0.56) 1;
-}
-
-/* Text reveal animation */
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.reveal-text {
-  animation: slideUp 0.8s ease forwards;
-}
-
-/* Skill bar animation */
-.skill-bar {
-  width: 0;
-  transition: width 1.5s ease-in-out;
-}
-
-.skill-bar.visible {
-  width: 100%;
-}
-
-/* Custom scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-200 dark:bg-gray-800;
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 dark:bg-gray-600 rounded-full;
+  background: var(--border);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-500 dark:bg-gray-500;
+  background: var(--brand);
+}
+
+/* Loading State */
+.loading {
+  width: 100vw;
+  height: 100vh;
+  background: #f2f2f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .loading {
+    background: #0a0a0a;
+  }
+}
+
+/* Outlined Text */
+.text-stroke {
+  -webkit-text-stroke: 1.5px currentColor;
+  color: transparent;
+}
+
+/* Grain Effect */
+.grain::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.05;
+  z-index: 1;
+
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+}
+
+/* Vertical Text */
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Link Underline */
+.link-underline {
+  background-image: linear-gradient(currentColor,
+      currentColor);
+
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+
+  transition:
+    background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* Project Image Effects */
+.img-mono {
+  filter: grayscale(100%) contrast(1.05);
+
+  transition:
+    filter 0.6s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .img-mono {
+  filter: grayscale(0%) contrast(1);
+
+  transform: scale(1.04);
+}
+
+/* Cursor Blink */
+@keyframes blink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.caret::after {
+  content: '_';
+
+  animation: blink 1s steps(1) infinite;
+
+  color: var(--brand);
+
+  margin-left: 0.1em;
 }

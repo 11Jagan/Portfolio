@@ -1,82 +1,169 @@
 import { motion } from 'framer-motion';
-import { FaNodeJs, FaReact, FaDatabase, FaGithub, FaUsers } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiJavascript, SiBootstrap } from 'react-icons/si';
+import { ArrowUpRight } from 'lucide-react';
 
-const techStack = [
-  { icon: <FaReact size={28} color="#61DAFB" />, label: 'React' },
-  { icon: <FaNodeJs size={28} color="#339933" />, label: 'Node.js' },
-  { icon: <SiExpress size={28} color="#000000" />, label: 'Express' },
-  { icon: <SiMongodb size={28} color="#47A248" />, label: 'MongoDB' },
-  { icon: <SiJavascript size={28} color="#F7DF1E" />, label: 'JavaScript' },
-  { icon: <SiBootstrap size={28} color="#7952B3" />, label: 'Bootstrap' },
-  { icon: <FaDatabase size={28} color="#4F46E5" />, label: 'REST APIs' },
-  { icon: <FaGithub size={28} color="#181717" />, label: 'GitHub' },
+const STATS = [
+  {
+    value: '20+',
+    label: 'Shipped Projects',
+  },
+  {
+    value: '3 yr',
+    label: 'Building on the Web',
+  },
+  {
+    value: '∞',
+    label: 'Infinite Dreams',
+  },
 ];
 
-const aboutVariants = {
-  hidden: { opacity: 0, x: -60 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-};
+const SectionLabel = ({ no, label }) => (
+  <div className="flex items-baseline gap-3 font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--muted)]">
+    <span className="text-brand">
+      [ {no} ]
+    </span>
 
-const iconVariants = {
-  hidden: { scale: 0.7, opacity: 0 },
-  visible: (i) => ({ scale: 1, opacity: 1, transition: { delay: i * 0.05 + 0.1, type: 'spring', stiffness: 350, damping: 18 } }),
-  hover: { scale: 1.1, transition: { type: 'spring', stiffness: 700, damping: 8 } },
-};
+    <span>{label}</span>
+  </div>
+);
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900 flex items-center justify-center font-[Poppins,sans-serif]">
-      <motion.div
-        variants={aboutVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="max-w-4xl w-full mx-auto px-4"
-      >
-        <div className="bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-lg p-8 md:p-12 flex flex-col md:flex-row gap-10 items-center">
-          {/* Left: Text */}
-          <div className="flex-1 min-w-[250px]">
-            <h2 className="font-bold mb-4 text-gray-900 dark:text-white text-3xl md:text-4xl lg:text-5xl leading-tight" style={{ fontFamily: 'Poppins, sans-serif' }}>
-              About Me
+    <section
+      id="about"
+      data-testid="about-section"
+      className="py-24 sm:py-32 lg:py-40 relative"
+    >
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-12 gap-x-6 gap-y-12">
+          {/* Left Column */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{
+              once: true,
+              amount: 0.3,
+            }}
+            transition={{ duration: 0.5 }}
+            className="col-span-12 lg:col-span-3"
+          >
+            <SectionLabel
+              no="02"
+              label="About"
+            />
+
+            <h2 className="mt-4 font-display font-black uppercase text-5xl sm:text-6xl leading-[0.9] tracking-tightest">
+              The
+              <br />
+              Person
+              <br />
+              Behind
+              <br />
+              The
+              <span className="text-brand">
+                .
+              </span>
             </h2>
-            <div className="w-16 h-1 bg-indigo-600 dark:bg-indigo-400 mb-6"></div>
-            <p className="mb-4 text-[1.08rem] md:text-lg text-[#444] dark:text-gray-300" style={{ lineHeight: 1.6, fontFamily: 'Poppins, sans-serif' }}>
-              I'm a <span className="font-semibold text-indigo-600 dark:text-indigo-400">Full Stack Web Developer</span> who builds modern, responsive, and user-centric applications. My main stack is <span className="font-semibold text-green-700 dark:text-green-400">MERN</span> (MongoDB, Express, React, Node.js), and I love working with REST APIs, JavaScript, and modern CSS frameworks.
+          </motion.div>
+
+          {/* Right Column */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
+            transition={{
+              duration: 0.7,
+              delay: 0.1,
+            }}
+            className="col-span-12 lg:col-span-8 lg:col-start-5"
+          >
+            {/* Quote */}
+            <p className="font-serif italic text-3xl sm:text-4xl lg:text-5xl leading-[1.15] tracking-tight text-[var(--fg)]">
+              <span className="text-brand">
+                &ldquo;
+              </span>
+
+              I treat the web like an editor treats a
+              page — every line of code earns its
+              space, every interaction holds a point of
+              view.
+
+              <span className="text-brand">
+                &rdquo;
+              </span>
             </p>
-            <p className="mb-4 text-[1.08rem] md:text-lg text-[#555] dark:text-gray-300" style={{ lineHeight: 1.6, fontFamily: 'Poppins, sans-serif' }}>
-              I thrive on <span className="font-semibold text-indigo-600 dark:text-indigo-400">problem-solving</span> and collaboration, and I'm passionate about creating seamless digital experiences that make a difference.
-            </p>
-            <div className="flex items-start mt-6">
-              <span className="flex-shrink-0 text-2xl mr-3 select-none">💡</span>
-              <div className="bg-[#f3f4f6] dark:bg-indigo-900/30 rounded-lg pl-4 pr-3 py-3 border-l-4 border-indigo-400 dark:border-indigo-500 text-[#444] dark:text-indigo-100 text-base md:text-[1.08rem] font-medium shadow-sm w-full" style={{ lineHeight: 1.6, fontFamily: 'Poppins, sans-serif' }}>
-                Fun fact: I love tackling coding challenges and collaborating on open source!
-              </div>
+
+            {/* Paragraphs */}
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6 text-[var(--muted-fg)] text-base sm:text-lg leading-relaxed">
+              <p>
+                I&rsquo;m{' '}
+                <span className="text-[var(--fg)] font-medium">
+                  Jagan
+                </span>
+                , a full-stack developer based in India.
+                My happy place is the seam between{' '}
+                <em className="font-serif">
+                  logic
+                </em>{' '}
+                and{' '}
+                <em className="font-serif">
+                  engineering
+                </em>{' '}
+                — building applications that feel responsive,
+                scalable, and purposeful from the first click
+                to the final interaction.
+              </p>
+
+              <p>
+                I work primarily with React, Node, and
+                MongoDB. Most days I&rsquo;m wiring up
+                REST endpoints in the morning,
+                polishing micro-interactions in the
+                afternoon, and exploring machine learning,
+                AI tools, and modern technologies to keep
+                growing as a developer.
+              </p>
             </div>
-          </div>
-          {/* Right: Tech Stack Icons */}
-          <div className="flex-1 flex flex-col items-center">
-            <div className="grid grid-cols-3 gap-5 md:gap-6">
-              {techStack.map((tech, i) => (
-                <motion.div
-                  key={tech.label}
-                  custom={i}
-                  variants={iconVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  whileHover="hover"
-                  viewport={{ once: true, amount: 0.3 }}
-                  className="flex flex-col items-center transition-transform duration-200"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
-                >
-                  {tech.icon}
-                  <span className="mt-2 text-xs text-[#555] dark:text-gray-300 font-medium">{tech.label}</span>
-                </motion.div>
+
+            {/* Stats */}
+            <div className="mt-16 grid grid-cols-3 gap-4 sm:gap-8 border-t border-[var(--border)] pt-8">
+              {STATS.map((s, i) => (
+                <div key={i}>
+                  <div className="font-display font-black text-4xl sm:text-5xl lg:text-6xl tracking-tightest leading-none">
+                    {s.value}
+                  </div>
+
+                  <div className="mt-2 font-mono text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[var(--muted)]">
+                    {s.label}
+                  </div>
+                </div>
               ))}
             </div>
-          </div>
+
+            {/* CTA */}
+            <a
+              data-testid="about-cta"
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+
+                document
+                  .getElementById('contact')
+                  ?.scrollIntoView({
+                    behavior: 'smooth',
+                  });
+              }}
+              className="mt-12 inline-flex items-center gap-3 font-mono text-xs tracking-[0.2em] uppercase border-b border-[var(--fg)] pb-1 hover:text-brand hover:border-brand transition-colors"
+            >
+              Let&rsquo;s Make Something
+
+              <ArrowUpRight size={14} />
+            </a>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

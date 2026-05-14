@@ -1,194 +1,203 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Github } from 'lucide-react';
+
+const PROJECTS = [
+  {
+    id: '01',
+    year: '2025',
+    title: 'Resume Builder',
+    type: 'Full-Stack · SaaS Tool',
+    description:
+      'A modern, ATS-friendly résumé builder with live preview, auth, and PDF export. Built to remove every excuse for shipping a great application.',
+    image:
+      'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&dpr=2',
+    tags: ['React', 'Node.js', 'Express', 'JWT', 'Tailwind'],
+    github: 'https://github.com/11Jagan/ResumeBuilder',
+    live: 'https://resume-builder-sigma-rust.vercel.app/',
+  },
+  {
+    id: '02',
+    year: '2024',
+    title: 'Cointraker',
+    type: 'Personal Finance · MERN',
+    description:
+      "Add incomes, plan budgets, watch where the money actually goes. Charts that don't lie, an interface that doesn't shout.",
+    image:
+      'https://images.unsplash.com/photo-1634084462412-b54873c0a56d?auto=format&fit=crop&w=1600&q=80',
+    tags: ['React', 'Node.js', 'Express', 'MongoDB'],
+    github: 'https://github.com/11Jagan/Expense-Tracker',
+    live: 'https://cointraker.netlify.app/',
+  },
+  {
+    id: '03',
+    year: '2024',
+    title: 'Wanderstay',
+    type: 'Airbnb Clone · Booking Platform',
+    description:
+      'Search, browse, and book stays around the world. Listings, image galleries, descriptions, bookings — the full hospitality loop.',
+    image:
+      'https://images.unsplash.com/photo-1721395522061-46cf65bfe827?auto=format&fit=crop&w=1600&q=80',
+    tags: ['React', 'MongoDB', 'Node.js', 'Express'],
+    github: 'https://github.com/11Jagan/Airbnb-Clone',
+    live: 'https://wanderstay-ks67.onrender.com/',
+  },
+];
 
 const Projects = () => {
-  const [projects] = React.useState([
-    {
-      id: 1,
-      title: "Resume Builder",
-      description:
-        "A modern, full-stack resume builder application that helps users create professional, ATS-friendly resumes with an intuitive interface and real-time preview.",
-      image:
-        "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      tags: ["React", "Node.js", "Express", "JWT", "Tailwind"],
-      githubLink: "https://github.com/11Jagan/ResumeBuilder",
-      liveLink: "https://resume-builder-sigma-rust.vercel.app/",
-    },
-    {
-      id: 2,
-      title: "Expense Tracker",
-      description:
-        "The Expense Tracker app allows users to add incomes and expenses, set budgets, and track their financial activity. It provides visual reports in charts to easily monitor spending patterns and budget adherence.",
-      image:
-        "https://s3-ap-southeast-1.amazonaws.com/storage.virtualspirit.me/post/cover/294/10_Key_Features_of_Budgeting_and_Expense_Tracking_in_Fintech_Apps.jpg",
-      tags: ["React", "Node.js", "Express", "MongoDB"],
-      githubLink: "https://github.com/11Jagan/Expense-Tracker",
-      liveLink: "https://cointraker.netlify.app/",
-    },
-    {
-      id: 3,
-      title: "AirBnb Clone",
-      description:
-        "The Airbnb Clone is a web app that lets users search, view, and book accommodations worldwide. It features property listings, images, descriptions, and booking management, providing an experience similar to Airbnb.(wait 2 minutes for the server to wake up when opening the demo link)",
-      image:
-        "https://migrateshop.com/wp-content/uploads/2022/07/Airbnb-clone-script.webp",
-      tags: ["React", "MongoDB", "Node.js", "Express"],
-      githubLink: "https://github.com/11Jagan/Airbnb-Clone",
-      liveLink: "https://wanderstay-ks67.onrender.com/",
-    },
-  ]);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-    hover: {
-      y: -8,
-      scale: 1.02,
-      transition: {
-        duration: 0.2,
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  const tagColors = {
-    React: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
-    "Node.js":
-      "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
-    MongoDB:
-      "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300",
-    Express: "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300",
-    Redux:
-      "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300",
-    Firebase:
-      "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300",
-    Tailwind:
-      "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300",
-    WebSocket:
-      "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300",
-    JWT: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300",
-  };
-
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section
+      id="projects"
+      data-testid="projects-section"
+      className="py-24 sm:py-32 lg:py-40"
+    >
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg">
-            Explore my latest projects showcasing my expertise in full-stack
-            development and problem-solving.
-          </p>
-        </motion.div>
+        <div className="grid grid-cols-12 gap-6 mb-16 lg:mb-24 items-end">
+          <div className="col-span-12 lg:col-span-8">
+            <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--muted)] mb-4">
+              <span className="text-brand">[ 04 ]</span>
+              &nbsp; Selected Work
+            </div>
 
-        {/* Projects Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto"
-        >
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              variants={cardVariants}
-              whileHover="hover"
-              className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
+            <h2 className="font-display font-black uppercase text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tightest">
+              Things I&rsquo;ve
+              <br />
+
+              <span className="text-brand">Built</span>, shipped,
+              <br />
+
+              <span className="font-serif italic font-normal lowercase text-[var(--muted-fg)]">
+                stood behind.
+              </span>
+            </h2>
+          </div>
+
+          <div className="col-span-12 lg:col-span-3 lg:col-start-10 lg:text-right">
+            <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--muted)] mb-2">
+              03 of 12 cases
+            </p>
+
+            <a
+              data-testid="projects-github-cta"
+              href="https://github.com/11Jagan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.2em] uppercase border-b border-[var(--fg)] pb-1 hover:text-brand hover:border-brand transition-colors"
             >
-              {/* Project Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              See All on GitHub
+
+              <ArrowUpRight size={14} />
+            </a>
+          </div>
+        </div>
+
+        {/* Project List */}
+        <div className="space-y-24 lg:space-y-32">
+          {PROJECTS.map((p, idx) => (
+            <motion.article
+              key={p.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.7,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="group grid grid-cols-12 gap-6 items-start"
+              data-testid={`project-card-${p.id}`}
+            >
+              {/* Image */}
+              <div
+                className={`col-span-12 lg:col-span-8 ${idx % 2 === 1 ? 'lg:col-start-5' : ''
+                  } order-1`}
+              >
+                <a
+                  href={p.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block relative overflow-hidden border border-[var(--border)] bg-[var(--surface)]"
+                >
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover img-mono"
+                    />
+                  </div>
+
+                  <div className="absolute top-4 left-4 bg-[var(--bg)] px-3 py-1 font-mono text-[10px] tracking-[0.2em] uppercase border border-[var(--border)]">
+                    {p.year}
+                  </div>
+
+                  <div className="absolute top-4 right-4 w-11 h-11 bg-brand text-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                    <ArrowUpRight size={18} />
+                  </div>
+                </a>
               </div>
 
-              {/* Project Content */}
-              <div className="p-6">
-                {/* Title */}
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300">
-                  {project.title}
+              {/* Content */}
+              <div
+                className={`col-span-12 lg:col-span-4 order-2 ${idx % 2 === 1
+                    ? 'lg:col-start-1 lg:row-start-1 lg:text-left'
+                    : ''
+                  }`}
+              >
+                <div className="flex items-baseline gap-4 mb-4">
+                  <span className="font-display font-black text-5xl text-brand leading-none">
+                    {p.id}
+                  </span>
+
+                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[var(--muted)]">
+                    {p.type}
+                  </span>
+                </div>
+
+                <h3 className="font-display font-bold uppercase text-3xl sm:text-4xl tracking-tight leading-[0.95] mb-4">
+                  {p.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                  {project.description}
+                <p className="font-sans text-base text-[var(--muted-fg)] leading-relaxed mb-6">
+                  {p.description}
                 </p>
 
-                {/* Tech Stack Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        tagColors[tag] ||
-                        "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-300"
-                      }`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-[var(--muted)] mb-6">
+                  {p.tags.join(' · ')}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-3">
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={project.liveLink}
+                <div className="flex flex-wrap gap-3">
+                  {/* Live Button */}
+                  <a
+                    data-testid={`project-live-${p.id}`}
+                    href={p.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors duration-200 flex-1"
+                    className="group/btn inline-flex items-center gap-2 bg-[var(--fg)] text-[var(--bg)] px-5 py-3 font-mono text-[11px] tracking-[0.2em] uppercase hover:bg-brand transition-colors"
                   >
-                    <ExternalLink size={16} className="mr-2" />
-                    Live Demo
-                  </motion.a>
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={project.githubLink}
+                    Live
+
+                    <ArrowUpRight
+                      size={14}
+                      className="group-hover/btn:rotate-45 transition-transform"
+                    />
+                  </a>
+
+                  {/* Source Button */}
+                  <a
+                    data-testid={`project-github-${p.id}`}
+                    href={p.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 hover:border-indigo-600 dark:hover:border-indigo-400 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg font-medium transition-colors duration-200 flex-1"
+                    className="inline-flex items-center gap-2 border border-[var(--fg)] px-5 py-3 font-mono text-[11px] tracking-[0.2em] uppercase hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-colors"
                   >
-                    <Github size={16} className="mr-2" />
-                    GitHub
-                  </motion.a>
+                    <Github size={14} />
+                    Source
+                  </a>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
