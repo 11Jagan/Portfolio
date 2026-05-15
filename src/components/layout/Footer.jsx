@@ -23,13 +23,13 @@ const Footer = () => {
               &nbsp; Thanks for reading — let&rsquo;s connect
             </p>
 
-            <h2 className="font-display font-black uppercase text-[18vw] sm:text-[16vw] lg:text-[12vw] leading-[0.85] tracking-tightest">
+            <h2 className="font-display font-black uppercase text-[18vw] sm:text-[16vw] lg:text-[12vw] leading-[0.85] tracking-normal">
               <span className="block">
                 Jagan
                 <span className="text-brand">.</span>
               </span>
 
-              <span className="block text-stroke">
+              <span className="block">
                 Mohan
               </span>
             </h2>

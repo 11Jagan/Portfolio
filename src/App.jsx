@@ -95,12 +95,11 @@ function App() {
             {/* Second Marquee */}
             <Marquee
               items={[
-                'Selected Work',
                 'Case Studies',
-                '03 / 12',
-                '2024 · 2025 · 2026',
+                'Selected Works',
+                'Available 2026',
               ]}
-              reverse
+              continuous={true}
             />
 
             {/* Experience */}

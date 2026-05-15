@@ -51,7 +51,7 @@ const About = () => {
               label="About"
             />
 
-            <h2 className="mt-4 font-display font-black uppercase text-5xl sm:text-6xl leading-[0.9] tracking-tightest">
+            <h2 className="mt-4 font-display font-black uppercase text-5xl sm:text-6xl leading-[0.9] tracking-tight">
               The
               <br />
               Person

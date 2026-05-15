@@ -54,7 +54,7 @@ const Skills = () => {
               &nbsp; Stack
             </div>
 
-            <h2 className="font-display font-black uppercase text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tightest">
+            <h2 className="font-display font-black uppercase text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tight">
               The Tools
               <br />
 

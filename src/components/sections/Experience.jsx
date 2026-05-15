@@ -18,7 +18,7 @@ const EXPERIENCES = [
         stack: ['JavaScript', 'React', 'Git', 'Testing'],
     },
     {
-        period: '2022 — 2023',
+        period: '2023',
         role: 'Frontend Developer (Learner)',
         company: 'Self-Initiated Studio',
         summary:
@@ -43,7 +43,7 @@ const Experience = () => {
                             &nbsp; Experience
                         </div>
 
-                        <h2 className="font-display font-black uppercase text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tightest">
+                        <h2 className="font-display font-black uppercase text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tight">
                             A Working
                             <br />
 

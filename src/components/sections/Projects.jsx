@@ -59,7 +59,7 @@ const Projects = () => {
               &nbsp; Selected Work
             </div>
 
-            <h2 className="font-display font-black uppercase text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tightest">
+            <h2 className="font-display font-black uppercase text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tight">
               Things I&rsquo;ve
               <br />
 
@@ -139,8 +139,8 @@ const Projects = () => {
               {/* Content */}
               <div
                 className={`col-span-12 lg:col-span-4 order-2 ${idx % 2 === 1
-                    ? 'lg:col-start-1 lg:row-start-1 lg:text-left'
-                    : ''
+                  ? 'lg:col-start-1 lg:row-start-1 lg:text-left'
+                  : ''
                   }`}
               >
                 <div className="flex items-baseline gap-4 mb-4">

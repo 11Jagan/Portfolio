@@ -85,7 +85,7 @@ const Hero = () => {
             }}
             className="col-span-12 lg:col-span-8"
           >
-            <h1 className="font-display font-black uppercase leading-[0.85] tracking-tightest text-[14vw] sm:text-[12vw] lg:text-[9vw]">
+            <h1 className="font-display font-black uppercase leading-[0.85] tracking-normal text-[14vw] sm:text-[12vw] lg:text-[9vw]">
               <span className="block">
                 Jagan
               </span>

@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 
 const Marquee = ({ items, reverse = false }) => {
+    const repeatedItems = [...items, ...items];
+
     return (
         <div
             data-testid="marquee-strip"
@@ -8,35 +10,29 @@ const Marquee = ({ items, reverse = false }) => {
             aria-hidden="true"
         >
             <motion.div
-                className="flex whitespace-nowrap will-change-transform"
+                className="flex w-max whitespace-nowrap will-change-transform"
                 animate={{
                     x: reverse ? ['-50%', '0%'] : ['0%', '-50%'],
                 }}
                 transition={{
-                    duration: 15,
+                    duration: 100,
                     repeat: Infinity,
                     ease: 'linear',
                 }}
             >
-                {[...items, ...items, ...items, ...items].map((word, i) => (
-                    <span
+                {repeatedItems.map((word, i) => (
+                    <div
                         key={i}
-                        className="font-display font-black uppercase text-[12vw] sm:text-[10vw] lg:text-[8vw] tracking-tightest leading-none mx-8 flex items-center gap-8"
+                        className="flex items-center gap-16 mx-16 shrink-0"
                     >
-                        <span
-                            className={
-                                i % 2 === 0
-                                    ? 'text-stroke'
-                                    : 'text-[var(--fg)]'
-                            }
-                        >
+                        <span className="font-display font-black uppercase text-[12vw] sm:text-[10vw] lg:text-[8vw] tracking-tight leading-none text-[var(--fg)]">
                             {word}
                         </span>
 
-                        <span className="text-brand text-[8vw]">
+                        <span className="text-brand text-[8vw] leading-none">
                             ✦
                         </span>
-                    </span>
+                    </div>
                 ))}
             </motion.div>
         </div>
