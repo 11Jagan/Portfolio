@@ -87,7 +87,7 @@ const Contact = () => {
         <div className="grid grid-cols-12 gap-6 mb-16 lg:mb-24">
           <div className="col-span-12 lg:col-span-8">
             <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--muted)] mb-4">
-              <span className="text-brand">[ 07 ]</span>
+              <span className="text-brand">[ 06 ]</span>
               &nbsp; Contact
             </div>
 
